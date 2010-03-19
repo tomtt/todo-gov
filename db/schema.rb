@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319150448) do
+ActiveRecord::Schema.define(:version => 20100319151342) do
 
   create_table "checked_items", :force => true do |t|
     t.integer  "item_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20100319150448) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "datamap"
   end
 
 end
