@@ -1,0 +1,4 @@
+%h2&= @user_list.name
+%ul#list
+  -@user_list.items.each do |list|
+    %li.item&= list.name

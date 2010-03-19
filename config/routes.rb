@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  # Resources
   map.resources :lists
+  map.resources :user_lists
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
@@ -8,4 +8,6 @@ ActionController::Routing::Routes.draw do |map|
   # Named routes
   map.login '/login', :controller => "user_sessions", :action => "new"
   map.logout '/logout', :controller => "user_sessions", :action => "destroy"
+
+  map.root :lists
 end
