@@ -11,7 +11,7 @@ class CheckableItem
 
   def check!
     if not checked?
-      @checked_item = CheckedItem.create(:item => @item, :user_list => @user_list)
+      @checked_item = CheckedItem.create!(:item => @item, :user_list => @user_list)
     end
   end
 
@@ -31,17 +31,29 @@ end
 
 class UserList < ActiveRecord::Base
   belongs_to :list
+  belongs_to :user
   has_many :checked_items
+  validates_presence_of :user, :list
 
   def items
-    checked_items_map = checked_items.inject({}){|acc, checked_item| acc.merge(checked_item.item_id => checked_item) }
-    list.items.map{|item| CheckableItem.new(item, checked_items_map[item.id], self)}
+    @items ||= (
+      checked_items_map = checked_items.inject({}){|acc, checked_item| acc.merge(checked_item.item_id => checked_item) }
+      list.items.map{|item| CheckableItem.new(item, checked_items_map[item.id], self)}
+    )
   end
 
   def item(id)
     items.find{|item| item.id == id.to_i }
   end
 
+  def completed_percentage
+    (items.select(&:checked?).size * 100 ) / items.size
+  end
+
   validates_presence_of :list
   delegate :name, :to => :list
+
+  def to_s
+    name
+  end
 end

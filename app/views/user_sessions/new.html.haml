@@ -1,5 +1,4 @@
-%h2
-  login
+%h2 login
 - form_for @user_session, :url => user_session_path do |f|
   = f.error_messages
   = f.label :login
@@ -9,4 +8,5 @@
   = f.check_box :remember_me
   = f.label :remember_me
   = f.submit "Log in"
-</form>
+
+=link_to("Sign up", new_user_path)
