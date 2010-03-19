@@ -1,5 +1,5 @@
 .widget.find_your_nearest_gp
   Find your nearest gp
-  - fields_for :user_data, :builder => TodoFormBuilder do |form|
+  - form_for :user_data, :builder => TodoFormBuilder do |form|
     = form.text_field :postcode
-    = form.submit 'Search'
+    = perform_button('Search')
