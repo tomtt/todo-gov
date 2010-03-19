@@ -9,3 +9,10 @@
 h2 {
   font-size: medium;
 }
+
+.widget .error_message {
+  margin: 1em;
+  padding: 0.5em;
+  border: 1px solid #900;
+  background-color: #fcc;
+}
