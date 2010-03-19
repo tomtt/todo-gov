@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     format.html do
       if @resource_saved
         flash[:notice] = "Login successful!"
-        redirect_back_or_default person_path(resource.person)
+        redirect_back_or_default user_path(resource.user)
       else
         render :action => :new
       end
@@ -24,7 +24,7 @@ class UserSessionsController < ApplicationController
   response_for :destroy do |format|
     format.html do
       flash[:notice] = "Logout successful!"
-      redirect_back_or_default person_path(@last_logged_in_user_id)
+      redirect_back_or_default user_path(@last_logged_in_user_id)
     end
   end
 
