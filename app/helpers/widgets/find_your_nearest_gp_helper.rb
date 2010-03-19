@@ -1,0 +1,2 @@
+module Widgets::FindYourNearestGpHelper
+end

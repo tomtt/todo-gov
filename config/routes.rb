@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => "users"
   map.resources :users
 
+  map.namespace :widgets do |widget|
+    widget.resources :find_your_nearest_gp
+  end
+
   # Named routes
   map.login '/login', :controller => "user_sessions", :action => "new"
   map.logout '/logout', :controller => "user_sessions", :action => "destroy"
