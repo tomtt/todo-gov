@@ -9,13 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319141420) do
+ActiveRecord::Schema.define(:version => 20100319150448) do
 
   create_table "checked_items", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_list_id"
   end
 
   create_table "items", :force => true do |t|

@@ -1,2 +1,7 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function($){
+  $('#user_list .item input[type="checkbox"]').change(function(){
+    var path = window.location.pathname + "/check_item";
+    var id = this.name.replace("user_list[item_", "").replace("]", "");
+    $.post(path, { item_id:  id, checked: this.checked });
+  })
+});
