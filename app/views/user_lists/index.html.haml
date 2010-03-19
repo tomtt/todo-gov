@@ -1,0 +1,10 @@
+%h2 Check Lists
+%ul
+  -@user_lists.each do |ul|
+    %li.list
+      =link_to(ul, ul)
+      (
+      =ul.completed_percentage
+      \%)
+
+=link_to "New List", lists_path

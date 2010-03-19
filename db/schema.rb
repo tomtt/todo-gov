@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319151342) do
+ActiveRecord::Schema.define(:version => 20100319161026) do
 
   create_table "checked_items", :force => true do |t|
     t.integer  "item_id"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20100319151342) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "user_lists", ["user_id", "list_id"], :name => "index_user_lists_on_user_id_and_list_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

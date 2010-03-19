@@ -1,0 +1,12 @@
+= link_to 'Edit Profile', edit_account_path
+
+%h2 Check Lists
+%ul
+  -@user.user_lists.each do |ul|
+    %ul.list
+      =link_to(ul, ul)
+      (
+      =ul.completed_percentage
+      \%)
+
+=link_to "New List", lists_path

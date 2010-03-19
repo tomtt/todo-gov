@@ -2,9 +2,14 @@
 %html
   %head
     %title Entitled Document.
+    = stylesheet_link_tag :all, :cache => true
 
   %body
-    =yield
+    #content
+      #head
+        -if current_user
+          =render :partial => "layouts/user_bar", :locals => {:user => current_user}
+      =yield
     
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type => "text/javascript"}
     = javascript_include_tag :all, :cache => true

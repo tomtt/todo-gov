@@ -1,0 +1,40 @@
+body{
+  color: #333;
+}
+
+#content{
+  width: 700px;
+  margin: 0 auto;
+}
+
+h1,h2,h3,h4{
+  font-family: "arial black", "arial";
+  color: #000;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin: .25em 0;
+  font-size: 1.25em;
+  list-style:none;
+  position: relative;
+}
+
+ul li label {
+  display: block;
+  margin-left: 2em;
+}
+
+ul li input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: .5em;
+}
+
+ul li.checked {
+  background: #eee;
+  color: #888;
+}
