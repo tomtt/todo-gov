@@ -1,0 +1,2 @@
+module Widgets::ContactTheRegisterOfficeHelper
+end
