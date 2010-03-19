@@ -1,6 +1,10 @@
 var todo_gov_widget = {
   perform: function() {
-    $(this).closest('.widget').empty().append('Performing...')
+    widget = $(this).closest('.widget')
+    info = $(this).closest('.widget').find('.perform_info')
+    widget.children().hide();
+    info.show();
+    widget.append(info)
     return false;
   }
 }

@@ -1,3 +1,11 @@
 .perform_info {
   display: none;
 }
+
+.widget {
+  border: 1px solid #999;
+}
+
+h2 {
+  font-size: medium;
+}
