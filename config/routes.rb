@@ -14,4 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => "user_sessions", :action => "destroy"
 
   map.root :lists
+
+  map.connect 'pages/:action', :controller => 'pages'
 end
