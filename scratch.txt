@@ -1,0 +1,24 @@
+
+
+Example list:
+
+
+[] notify the family GP
+[] register the death at a register office
+[] find the will - the deceased person’s solicitor may have a copy if you can't find one
+[] begin funeral arrangements - you will need to check the will for any special requests
+[] if relevant, complete form BD8 given to you when you register the death and send to the local Jobcentre Plus or Social Security
+[] if the person who has died was receiving any benefits or tax credits, advise the offices that were making the payments - if you can't find relevant correspondence, use the links below to the tax credit helpline and Jobcentre plus
+[] Inform the relevant tax office
+[] Inform National Insurance contributions office if they were self-employed (to cancel payments)
+[] Inform Child Benefit office (at latest within eight weeks)
+[] Inform local authority if they paid council tax, had a parking permit, were issued with a blue badge for disabled parking, or received social services help, attended day care or similar
+[] Inform UK Identity and Passport Service, to return and cancel a passport
+[] Contact the DVLA, to return any driving licence, cancel car tax or return
+[] Inform car registration documents/change ownership
+
+
+
+Widgets:
+  * Register Office Locator [POSTCODE]
+  * Council Contact Details Locator [POSTCODE]
