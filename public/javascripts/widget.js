@@ -23,13 +23,18 @@ var todo_gov_widget = {
   success: function(response) {
     $(this).empty();
     $(this).append(response)
+    todo_gov_widget.activate_perform_buttons();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     $(this).children().show();
     $(this).find('.perform_info').hide();
+    todo_gov_widget.activate_perform_buttons();
+  },
+  activate_perform_buttons: function() {
+    $('input.widget_perform[type=submit]').click(todo_gov_widget.perform)
   }
 }
 
 $(document).ready(function () {
-  $('input.widget_perform[type=submit]').click(todo_gov_widget.perform)                           
+  todo_gov_widget.activate_perform_buttons();
 });

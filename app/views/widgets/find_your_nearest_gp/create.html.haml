@@ -3,3 +3,8 @@ Here is a list of doctors near
 %ul
   %li Doctor A
   %li Doctor B
+
+Try a new search:
+- form_for :user_data, :url => '/widgets/find_your_nearest_gp', :builder => TodoFormBuilder do |form|
+  = form.text_field :postcode, :value => params["user_data"]["postcode"]
+  = perform_button('Search')

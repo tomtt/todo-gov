@@ -1,4 +1,4 @@
-.perform_info {
+.perform_info, .error_message {
   display: none;
 }
 
