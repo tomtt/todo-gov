@@ -1,0 +1,4 @@
+%ul#lists
+  - @lists.each do |list|
+    %li=link_to(h(list.name), list)
+  

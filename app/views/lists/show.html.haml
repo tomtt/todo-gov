@@ -1,0 +1,4 @@
+%h2&= @list.name
+%ul#list
+  -@list.items.each do |list|
+    %li.item&= list.name
