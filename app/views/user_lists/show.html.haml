@@ -10,5 +10,10 @@
         =f.check_box "item_#{item.id}", :checked => item.checked?
         %h3=f.label "item_#{item.id}", h(item.name)
         %p&=item.description
+        - if !item.item.widgets.empty?
+          .widgets
+            - item.item.widgets.each do |widget|
+              = render_widget(widget)
+
         =f.text_area "notes_#{item.id}", :value => item.notes.to_s, :class => "notes"
 
