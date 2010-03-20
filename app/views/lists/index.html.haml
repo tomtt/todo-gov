@@ -6,3 +6,5 @@
 %ul#lists
   - @lists.each do |list|
     %li=link_to(h(list.name), list)
+
+= link_to "New List", new_list_path

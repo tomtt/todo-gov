@@ -1,0 +1,19 @@
+-form_for(@list) do |f|
+  =f.label :name
+  %br
+  =f.text_field :name
+  %br
+  =f.label :description
+  %br
+  =f.text_area :description
+  %br
+  =f.submit
+
+
+%ol
+  -@list.items.each do |item|
+    %li
+      =link_to "edit", edit_list_item_path(@list, item)
+      &= item.name
+  %li=link_to "New", new_list_item_path(@list)
+  
