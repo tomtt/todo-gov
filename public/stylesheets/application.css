@@ -102,12 +102,6 @@ ul li textarea.notes:focus{
   border: 1px solid #000;
 }
 
-ul li .notes_toggle {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
 ul li p.working, ul li p.done {
   position: absolute;
   right: 101%;
@@ -133,4 +127,27 @@ ul li .actions {
   position: absolute;
   top: 0;
   right: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.done_link,
+button.skip_link,
+button.notes_toggle {
+  border: none;
+  background: none;
+  background-image: url(/images/tick.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  text-indent: -1000em;
+  width: 20px;
+  height: 20px;
+}
+button.notes_toggle {
+  background-image: url(/images/notes_toggle.png);
+}
+button.skip_link {
+  background-image: url(/images/minus.png);
 }

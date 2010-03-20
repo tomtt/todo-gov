@@ -37,7 +37,7 @@ $(function($){
       checkbox.change();
       return false;
     });
-    link.text("Done").addClass("done_link");
+    link.text("Done").addClass("done_link").attr("title", "Mark as done");
     actions.append(link);
 
 
@@ -46,7 +46,7 @@ $(function($){
       $(this).closest("li").slideUp();
       return false;
     });
-    link.text("Skip").addClass("done_link");
+    link.text("Skip").addClass("skip_link").attr("title", "Skip this task");
     actions.append(link);
   });
   
@@ -55,10 +55,10 @@ $(function($){
 
   NoteSaver.setup = function(notes){
     NoteSaver.known_text[notes.attr("id")] = notes.val();
-    var link = $("<a><img src='/images/notes_toggle.png'/></a>")
+    var link = $('<button type="button">Notes</button>')
       .addClass("notes_toggle")
       .click(function(){ notes.toggle(); notes.focus(); });
-    notes.parent("li").append(link);
+    notes.parent("li").find(".actions").append(link);
     if(notes.val() === ""){ notes.hide(); }
     notes.keyup(function(){
       NoteSaver.start(notes);
