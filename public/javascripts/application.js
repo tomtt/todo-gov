@@ -26,9 +26,11 @@ $(function($){
 
   $('#user_list .item .actions').each(function(){
     var actions = $(this);
+    var li = actions.closest("li");
+
     var link = $("<button />");
     link.click(function(){
-      var checkbox = $(this).closest("li").find('input:checkbox');
+      var checkbox = li.find('input:checkbox');
       if( checkbox.attr("checked") ){
         checkbox.attr("checked", false);
       }else{
@@ -48,6 +50,20 @@ $(function($){
     });
     link.text("Skip").addClass("skip_link").attr("title", "Skip this task");
     actions.append(link);
+
+    var widget = li.find(".widget");
+    if(widget.length > 0){
+      widget.hide();
+      link = $("<button />")
+        .text("Help")
+        .attr("title", "Get help with this task")
+        .addClass("help")
+        .click(function() {
+          $(this).closest(".item").find(".widget").toggle();
+          return false;
+        });
+      actions.append(link);
+    }
   });
   
 

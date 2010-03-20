@@ -162,7 +162,8 @@ button {
 
 button.done_link,
 button.skip_link,
-button.notes_toggle {
+button.notes_toggle,
+button.help {
   border: none;
   background: none;
   background-image: url(/images/tick.png);
@@ -177,4 +178,7 @@ button.notes_toggle {
 }
 button.skip_link {
   background-image: url(/images/minus.png);
+}
+button.help {
+  background-image: url(/images/help.png);
 }
