@@ -18,7 +18,36 @@ $(function($){
       $("#completed_percentage").text(json.completed_percentage);
       update_checked_css();
     });
-  })
+  }).hide();
+  
+  $('#user_list li.item').append($("<div/>").addClass("actions"));
+
+  $('#user_list .item .actions').each(function(){
+    var actions = $(this);
+    var link = $("<button />");
+    link.click(function(){
+      var checkbox = $(this).closest("li").find('input:checkbox');
+      if( checkbox.attr("checked") ){
+        checkbox.attr("checked", false);
+      }else{
+        checkbox.attr("checked", true);
+      }
+      checkbox.change();
+      return false;
+    });
+    link.text("Done").addClass("done_link");
+    actions.append(link);
+
+
+    link = $("<button />");
+    link.click(function(){
+      $(this).closest("li").slideUp();
+      return false;
+    });
+    link.text("Skip").addClass("done_link");
+    actions.append(link);
+  });
+  
 
   var NoteSaver = {pending: {}, known_text: {}};
 
@@ -26,7 +55,7 @@ $(function($){
     NoteSaver.known_text[notes.attr("id")] = notes.val();
     var link = $("<a><img src='/images/notes_toggle.png'/></a>")
       .addClass("notes_toggle")
-      .click(function(){ notes.toggle(); });
+      .click(function(){ notes.toggle(); notes.focus(); });
     notes.parent("li").append(link);
     if(notes.val() === ""){ notes.hide(); }
     notes.keyup(function(){

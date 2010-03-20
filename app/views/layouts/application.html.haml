@@ -5,6 +5,8 @@
     = stylesheet_link_tag :all, :cache => true
 
   %body
+    %h1#title
+      =link_to("TODO - Gov", root_path)
     #content
       #head
         -if current_user

@@ -1,8 +1,9 @@
+.options
+  =link_to "Your Private Lists", user_lists_path
+  \/
+  = link_to 'Edit Your Private Profile', edit_account_path
+  \/
+  =link_to "Logout", logout_path
+
 Hello 
 %strong&= user.login.humanize
-%br
-=link_to "Your Lists", user_lists_path
-\/
-= link_to 'Edit Profile', edit_account_path
-\/
-=link_to "Logout", logout_path
