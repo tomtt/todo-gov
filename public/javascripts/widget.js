@@ -19,41 +19,34 @@ var todo_gov_widget = {
       error: todo_gov_widget.error
     });
 
-    var user_data = {};
     form.find("input").each(function() {
       var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
       if(matches) {
-        var field_name = "user[datamap]["+matches[1]+"]";
-        user_data[field_name] = $(this).attr("value");
+        todo_gov_user_data.set(matches[1], $(this).attr("value"));
       }
     });
 
-    var user_request = $.ajax({
-      type: "POST",
-      url: "/account.json",
-      data: $.extend({"_method":"put"}, user_data)
-    });
+    todo_gov_user_data.save();
 
     return false;
   },
   success: function(response) {
     $(this).empty();
     $(this).append(response)
-    todo_gov_widget.activate_perform_buttons();
+    todo_gov_widget.popuplate_user_data();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     $(this).children().show();
     $(this).find('.perform_info').hide();
     $('.error_message', this).show();
-    todo_gov_widget.activate_perform_buttons();
   },
   activate_perform_buttons: function() {
-    $('input.widget_perform[type=submit]').click(todo_gov_widget.perform)
+    $('input.widget_perform[type=submit]').live("click", todo_gov_widget.perform)
   },
   popuplate_user_data: function() {
     $(".widget form input").each(function() {
       var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
-      if(matches) {
+      if(matches && !$(this).attr("value")) {
         $(this).attr("value", current_user.data[matches[1]]);
       }
     });
