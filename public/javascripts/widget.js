@@ -3,10 +3,12 @@ var todo_gov_widget = {
     var widget = $(this).closest('.widget');
     var info = widget.find('.perform_info');
     var form = widget.find('form');
+    var previous_response = widget.find(".response");
+
+    previous_response.remove();
 
     widget.children().hide();
     info.show();
-    widget.append(info);
 
     var request = $.ajax({
       type: "POST",
@@ -35,8 +37,8 @@ var todo_gov_widget = {
     return false;
   },
   success: function(response) {
-    $(this).empty();
-    $(this).append(response)
+    $(this).children().hide();
+    $(this).append('<div class="response">' + response + '</div>');
     todo_gov_widget.activate_perform_buttons();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
