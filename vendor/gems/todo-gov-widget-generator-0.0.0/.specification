@@ -1,0 +1,77 @@
+--- !ruby/object:Gem::Specification 
+name: todo-gov-widget-generator
+version: !ruby/object:Gem::Version 
+  version: 0.0.0
+platform: ruby
+authors: 
+- Tom ten Thij
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-03-20 00:00:00 +00:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: thoughtbot-shoulda
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: Generator for todo-gov widget
+email: git@tomtenthij.nl
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.rdoc
+files: 
+- .document
+- .gitignore
+- LICENSE
+- README.rdoc
+- Rakefile
+- VERSION
+- generators/widget/USAGE
+- generators/widget/templates/controller.rb
+- generators/widget/widget_generator.rb
+- lib/todo-gov-widget-generator.rb
+- test/helper.rb
+- test/test_todo-gov-widget-generator.rb
+has_rdoc: true
+homepage: http://github.com/tomtt/todo-gov-widget-generator
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Generator for todo-gov widget
+test_files: 
+- test/helper.rb
+- test/test_todo-gov-widget-generator.rb
