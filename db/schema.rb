@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100320105012) do
+ActiveRecord::Schema.define(:version => 20100320142726) do
 
   create_table "checked_items", :force => true do |t|
     t.integer  "item_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100320105012) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "lists", :force => true do |t|

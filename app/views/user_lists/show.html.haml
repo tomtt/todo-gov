@@ -8,5 +8,6 @@
     -@user_list.items.each do |item|
       %li.item
         =f.check_box "item_#{item.id}", :checked => item.checked?
-        =f.label "item_#{item.id}", h(item.name)
+        %h3=f.label "item_#{item.id}", h(item.name)
+        %p&=item.description
         =f.text_area "notes_#{item.id}", :value => h(item.notes), :class => "notes"

@@ -34,7 +34,7 @@ class CheckableItem
   end
 
   delegate :notes, :to => :checked_item
-  delegate :name, :id, :desription, :to => :item
+  delegate :name, :id, :description, :to => :item
 end
 
 class UserList < ActiveRecord::Base
