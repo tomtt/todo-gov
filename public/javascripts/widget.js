@@ -1,21 +1,21 @@
 var todo_gov_widget = {
   perform: function() {
-    widget = $(this).closest('.widget')
-    info = $(this).closest('.widget').find('.perform_info')
+    var widget = $(this).closest('.widget');
+    var info = $(this).closest('.widget').find('.perform_info');
     widget.children().hide();
     info.show();
     widget.append(info);
 
-    form = $(this).parent('form');
+    var form = $(this).parent('form');
 
-    request = $.ajax({
+    var request = $.ajax({
       type: "POST",
       url: form.attr('action'),
       data: form.serialize(),
       context: widget,
       success: todo_gov_widget.success,
       error: todo_gov_widget.error
-    })
+    });
 
 
     return false;
