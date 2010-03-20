@@ -10,10 +10,13 @@ var todo_gov_widget = {
     info.show();
     widget.append(info);
 
+    var data = widget.find('input').serialize();
+    var url = widget.find('.url').attr('value')
+
     var request = $.ajax({
       type: "POST",
-      url: form.attr('action'),
-      data: form.serialize(),
+      url: url,
+      data: data,
       context: widget,
       success: todo_gov_widget.success,
       error: todo_gov_widget.error
