@@ -1,7 +1,14 @@
 body{
   color: #333;
   background: #666;
+}
+
+body,
+input,
+textarea,
+button {
   font-family: arial, sans-serif;
+  font-size: 1em;
 }
 
 #title {
