@@ -1,0 +1,11 @@
+.widget.<%= file_name %>
+  %h2
+    <%= file_name.humanize %>
+  .perform_info
+    = image_tag('spinner.gif', :alt => 'Please wait')
+    Please wait while we do stuff
+  .error_message
+    There was an error
+  - form_for :user_data, :url => '/widgets/<%= file_name %>', :builder => TodoFormBuilder do |form|
+    = form.text_field :postcode
+    = perform_button('Search')

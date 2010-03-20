@@ -8,11 +8,8 @@ class WidgetGenerator < Rails::Generator::NamedBase
       m.class_collisions class_path, "#{class_name}Controller", "#{class_name}Helper"
 
       # Controller, helper, views, and spec directories.
-      m.directory File.join('app/controllers', class_path)
       m.directory File.join('app/controllers/widgets', class_path)
-      m.directory File.join('app/helpers', class_path)
       m.directory File.join('app/helpers/widgets', class_path)
-      m.directory File.join('app/views', class_path, file_name)
       m.directory File.join('app/views/widgets', class_path, file_name)
 
       @default_file_extension = "html.haml"
@@ -21,16 +18,14 @@ class WidgetGenerator < Rails::Generator::NamedBase
       m.template 'controller.rb',
         File.join('app/controllers/widgets', class_path, "#{file_name}_controller.rb")
 
-      m.template 'controller:helper.rb',
+      m.template 'helper.rb',
         File.join('app/helpers/widgets', class_path, "#{file_name}_helper.rb")
 
       # Spec and view template for each action.
-      actions.each do |action|
-        path = File.join('app/views/widgets', class_path, file_name, "#{action}.#{@default_file_extension}")
-        m.template "controller:view.#{@default_file_extension}",
-          path,
-          :assigns => { :action => action, :path => path }
-      end
+      m.template "create.#{@default_file_extension}",
+        File.join("app/views/widgets", class_path, file_name, "create.#{@default_file_extension}")
+      m.template "_entry_point.#{@default_file_extension}",
+        File.join("app/views/widgets", class_path, file_name, "_entry_point.#{@default_file_extension}")
     end
   end
 end
