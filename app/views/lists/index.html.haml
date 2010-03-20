@@ -3,6 +3,18 @@
 %p
   From here you can get simple advice on what to do in the event of a family death, a new arrival or just when moving house.
 
+-if user_lists = current_user && current_user.user_lists.any? && current_user.user_lists
+  %h2 Your Lists
+  %ul
+    -user_lists.each do |ul|
+      %li.list
+        =link_to(ul, ul)
+        (
+        =ul.completed_percentage
+        \%)
+
+
+%h2 New List
 %ul#lists
   - @lists.each do |list|
     %li=link_to(h(list.name), list)

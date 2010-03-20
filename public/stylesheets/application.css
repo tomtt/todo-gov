@@ -1,6 +1,8 @@
 body{
   color: #333;
   background: #666;
+  padding: 0;
+  margin: 0;
 }
 
 body,
@@ -13,10 +15,16 @@ button {
 
 #title {
   color: #fff;
-  text-shadow: #000 1px 1px 10px;
-  width: 740px;
+  text-shadow: #000 1px 1px 1px;
   padding: 0;
-  margin: 0 auto 1em auto;  
+  margin: 0 auto -0.2em auto;
+  z-index: 200;
+  position: relative;
+  color: #fff;
+  background: #d00;
+  padding: .25em 1em;
+  width: 720px;
+  -webkit-box-shadow: rgba(0,0,0,.4) 0 4px 6px;
 }
 
 #content{
@@ -28,9 +36,7 @@ button {
 }
 
 #head {
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #ccc;
+  padding-bottom: .5em;
 }
 
 #head .options {
@@ -43,6 +49,16 @@ h1,h2,h3,h4{
   color: #000;
   margin-top: .5em;
   margin-bottom: .25em;
+}
+
+h2#list_title{
+  font-size: 2em;
+  margin-bottom: 2em;
+  color: #fff;
+  background: #000;
+  margin: 0 -1em;
+  padding: 0 1em;
+  -webkit-box-shadow: rgba(0,0,0,.4) 0 4px 6px;
 }
 
 h1 a{
