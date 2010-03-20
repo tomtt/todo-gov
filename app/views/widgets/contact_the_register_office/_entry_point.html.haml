@@ -6,7 +6,8 @@
     Finding your nearest registry office...
   .error_message
     There was an error locating your nearest registry office. Maybe try again?
-  - form_for :user_data, :url => '/widgets/contact_the_register_office', :builder => TodoFormBuilder do |form|
+  - fields_for :user_data, :builder => TodoFormBuilder do |form|
+    .url{ :value => '/widgets/contact_the_register_office' }
     = form.text_field :postcode
     = perform_button('Search')
 
