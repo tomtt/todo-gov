@@ -1,22 +1,36 @@
 var todo_gov_widget = {
   perform: function() {
-    widget = $(this).closest('.widget')
-    info = $(this).closest('.widget').find('.perform_info')
+    var widget = $(this).closest('.widget');
+    var info = widget.find('.perform_info');
+    var form = widget.find('form');
+
     widget.children().hide();
     info.show();
     widget.append(info);
 
-    form = $(this).parent('form');
-
-    request = $.ajax({
+    var request = $.ajax({
       type: "POST",
       url: form.attr('action'),
       data: form.serialize(),
       context: widget,
       success: todo_gov_widget.success,
       error: todo_gov_widget.error
-    })
+    });
 
+    var user_data = {};
+    form.find("input").each(function() {
+      var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
+      if(matches) {
+        var field_name = "user[datamap]["+matches[1]+"]";
+        user_data[field_name] = $(this).attr("value");
+      }
+    });
+
+    var user_request = $.ajax({
+      type: "POST",
+      url: "/account.json",
+      data: $.extend({"_method":"put"}, user_data)
+    });
 
     return false;
   },
@@ -32,9 +46,28 @@ var todo_gov_widget = {
   },
   activate_perform_buttons: function() {
     $('input.widget_perform[type=submit]').click(todo_gov_widget.perform)
+  },
+  popuplate_user_data: function() {
+    $(".widget form input").each(function() {
+      var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
+      if(matches) {
+        $(this).attr("value", current_user.data[matches[1]]);
+      }
+    });
+
+    $(".widget form").each(function() {
+      var unfilled_fields = $(this).find("input[value='']");
+      if(unfilled_fields.length == 0) {
+        todo_gov_widget.perform.apply(this);
+      }
+    });
+  },
+  init: function() {
+    this.activate_perform_buttons();
+    this.popuplate_user_data();
   }
 }
 
 $(document).ready(function () {
-  todo_gov_widget.activate_perform_buttons();
+  todo_gov_widget.init();
 });

@@ -46,3 +46,4 @@ rerun.txt
 public/tmp.html
 
 db/*.sqlite3
+config/initializers/personal_options.rb
