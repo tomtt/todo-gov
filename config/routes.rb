@@ -6,7 +6,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.namespace :widgets do |widget|
-    widget.resources :find_your_nearest_gp
+    # Create resources for each widget
+    widget_names = Dir.glob(Rails.root.join('app', 'controllers', 'widgets', '*')).
+      map { |c| File.basename(c, '_controller.rb') }
+    widget_names.each do |widget_name|
+      widget.resources widget_name.to_sym
+    end
   end
 
   # Named routes
