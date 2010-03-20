@@ -17,6 +17,20 @@ var todo_gov_widget = {
       error: todo_gov_widget.error
     });
 
+    var user_data = {};
+    form.find("input").each(function() {
+      var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
+      if(matches) {
+        var field_name = "user[datamap]["+matches[1]+"]";
+        user_data[field_name] = $(this).attr("value");
+      }
+    });
+
+    var user_request = $.ajax({
+      type: "POST",
+      url: "/account.json",
+      data: $.extend({"_method":"put"}, user_data)
+    });
 
     return false;
   },
