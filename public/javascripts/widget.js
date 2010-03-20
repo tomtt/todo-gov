@@ -57,8 +57,9 @@ var todo_gov_widget = {
         $(this).attr("value", current_user.data[matches[1]]);
       }
     });
-
-    $(".widget form").each(function() {
+  },
+  auto_submit: function() {
+    $(".widget.auto_submit form").each(function() {
       var unfilled_fields = $(this).find("input[value='']");
       if(unfilled_fields.length == 0) {
         todo_gov_widget.perform.apply(this);
@@ -68,6 +69,7 @@ var todo_gov_widget = {
   init: function() {
     this.activate_perform_buttons();
     this.popuplate_user_data();
+    this.auto_submit();
   }
 }
 
