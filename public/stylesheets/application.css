@@ -46,6 +46,10 @@ ul li textarea.notes{
   height: 3em;
   margin-top: .5em;
   margin-bottom: 1em;
+  border: 1px solid #FFF;
+}
+ul li textarea.notes:focus{
+  border: 1px solid #000;
 }
 
 ul li .notes_toggle {
