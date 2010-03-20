@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20100320142726) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "widgets"
     t.text     "description"
+    t.text     "widgets"
   end
 
   create_table "lists", :force => true do |t|
