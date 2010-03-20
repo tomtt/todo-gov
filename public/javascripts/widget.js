@@ -33,17 +33,15 @@ var todo_gov_widget = {
   success: function(response) {
     $(this).empty();
     $(this).append(response)
-    todo_gov_widget.activate_perform_buttons();
     todo_gov_widget.popuplate_user_data();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     $(this).children().show();
     $(this).find('.perform_info').hide();
     $('.error_message', this).show();
-    todo_gov_widget.activate_perform_buttons();
   },
   activate_perform_buttons: function() {
-    $('input.widget_perform[type=submit]').click(todo_gov_widget.perform)
+    $('input.widget_perform[type=submit]').live("click", todo_gov_widget.perform)
   },
   popuplate_user_data: function() {
     $(".widget form input").each(function() {
