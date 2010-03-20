@@ -20,30 +20,49 @@ $(function($){
     });
   })
 
-  $('#user_list .item .notes')
-    .each(function() {
-      var notes = $(this);
-      var link = $("<a><img src='/images/notes_toggle.png'/></a>")
-        .addClass("notes_toggle")
-        .click(function(){ notes.toggle(); });
-      $(this).parent("li").append(link);
-      if(notes.val() === ""){ notes.hide(); }
-      notes.keyup(function(){
-        NoteSaver.start(notes);
-      });
-    });
+  var NoteSaver = {pending: {}, known_text: {}};
 
-  var NoteSaver = {pending: {}};
+  NoteSaver.setup = function(notes){
+    NoteSaver.known_text[notes.attr("id")] = notes.val();
+    var link = $("<a><img src='/images/notes_toggle.png'/></a>")
+      .addClass("notes_toggle")
+      .click(function(){ notes.toggle(); });
+    notes.parent("li").append(link);
+    if(notes.val() === ""){ notes.hide(); }
+    notes.keyup(function(){
+      NoteSaver.start(notes);
+    });
+  };
+
   NoteSaver.start = function(notes){
-    if(this.pending[notes.id]){
-      clearTimeout(this.pending[notes.id]);
+    if(NoteSaver.known_text[notes.attr("id")] === notes.val()){return;}
+    
+    if(this.pending[notes.attr("id")]){
+      clearTimeout(this.pending[notes.attr("id")]);
     }
-    this.pending[notes.id] = setTimeout(function(){ NoteSaver.save(notes) }, 500);
+    notes.parent("li").find(".working").remove();
+    notes.parent("li").find(".done").remove();
+    notes.parent("li").append($("<p class='working'/>").text("Saving…"));
+    this.pending[notes.attr("id")] = setTimeout(function(){NoteSaver.save(notes);}, 500);
   };
-  NoteSaver.save = function(el){
+
+  NoteSaver.save = function(notes){
     var path = window.location.pathname + "/update_notes";
-    var id = el.attr("name").replace("user_list[notes_", "").replace("]", "");
-    $.post(path, { item_id:  id, notes: el.val() });
+    var id = notes.attr("name").replace("user_list[notes_", "").replace("]", "");
+    $.post(path, { item_id:  id, notes: notes.val() }, function(result){
+      if(result.ok){
+        var li = notes.parent("li");
+        li.find(".working").remove();
+        li.find(".done").remove();
+        li.append($("<p class='done'/>").text("Saved."));
+        li.find("p.done").fadeOut(1000);
+        NoteSaver.known_text[notes.attr("id")] = notes.val();
+      }else{
+        NoteSaver.start(notes);
+      }
+    });
   };
+
+  $('#user_list .item .notes').each(function(){ NoteSaver.setup($(this)); });
 });
 

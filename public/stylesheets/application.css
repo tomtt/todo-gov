@@ -53,3 +53,24 @@ ul li .notes_toggle {
   right: 0;
   top: 0;
 }
+
+ul li p.working, ul li p.done {
+  position: absolute;
+  right: 101%;
+  width: 5em;
+  margin-top: -3em;
+  line-height: 32px;
+  background: #fff;
+  padding: 0 1em 0 2em;
+  vertical-align: middle;
+  background-position: left 50%;
+  background-repeat: no-repeat;
+}
+
+ul li p.working{
+  background-image: url(/images/spinner.gif);
+}
+
+ul li p.done {
+  background-image: url(/images/tick.png);
+}
