@@ -5,6 +5,7 @@ Example list:
 
 [] notify the family GP
 [] register the death at a register office
+[] item with many widgets
 [] find the will - the deceased person’s solicitor may have a copy if you can't find one
 [] begin funeral arrangements - you will need to check the will for any special requests
 [] if relevant, complete form BD8 given to you when you register the death and send to the local Jobcentre Plus or Social Security
