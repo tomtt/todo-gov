@@ -2,7 +2,7 @@
   &= @user_list.name
   (
   %em#completed_percentage= @user_list.completed_percentage
-  \% complete)
+  \% complete )
 -form_for( @user_list ) do |f|
   %ul#user_list
     -@user_list.items.each do |item|
