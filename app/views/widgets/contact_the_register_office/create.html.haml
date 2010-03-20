@@ -1,0 +1,14 @@
+Here is a list of registry offices near
+= params["user_data"]["postcode"], ":"
+%ul
+  -@registry_offices.each do |registry|
+    %li
+      =link_to(registry.name, registry.url)
+      %br
+      ="#{registry.address}, #{registry.postcode}"
+      ="(#{registry.dist_miles} miles away)"
+
+Try a new search:
+- form_for :user_data, :url => '/widgets/contact_the_register_office', :builder => TodoFormBuilder do |form|
+  = form.text_field :postcode
+  = perform_button('Search')

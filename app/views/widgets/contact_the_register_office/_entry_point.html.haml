@@ -1,2 +1,12 @@
 .widget.contact_the_register_office
-  You can contact the register office at 0800-DEADFOLK
+  %h2
+    Find your nearest registry office
+  .perform_info
+    = image_tag('spinner.gif', :alt => 'Please wait')
+    Finding your nearest registry office...
+  .error_message
+    There was an error locating your nearest registry office. Maybe try again?
+  - form_for :user_data, :url => '/widgets/contact_the_register_office', :builder => TodoFormBuilder do |form|
+    = form.text_field :postcode
+    = perform_button('Search')
+
