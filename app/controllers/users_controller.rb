@@ -26,11 +26,17 @@ class UsersController < ApplicationController
 
   def update
     @user = @current_user # makes our views "cleaner" and more consistent
-    if @user.update_attributes(params[:user])
+    if updated = @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
-      redirect_to account_url
+      respond_to do |wants|
+        wants.html{ redirect_to account_url }
+        wants.json{ render :json => {:status => true} }
+      end
     else
-      render :action => :edit
+      respond_to do |wants|
+        wants.html{ render :action => :edit }
+        wants.json{ render :json => {:status => false, :errors => @user.errors} }
+      end
     end
   end
 end
