@@ -9,7 +9,7 @@
       %li.item
         =f.check_box "item_#{item.id}", :checked => item.checked?
         %h3=f.label "item_#{item.id}", h(item.name)
-        %p&=item.description
+        %p.description&=item.description
         - if !item.item.widgets.empty?
           .widgets
             - item.item.widgets.each do |widget|

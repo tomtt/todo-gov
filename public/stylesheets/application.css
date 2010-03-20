@@ -95,11 +95,11 @@ ul li {
 li.item h3 {
   color: #333;
 }
-li.item.next h3 {
+li.item.next h3 label {
   color: green;
 }
 
-ul li label, ul li p {
+ul li h3 label, ul li p {
   display: block;
   width: 550px;
 }
@@ -110,7 +110,7 @@ ul li input[type="checkbox"] {
   top: .5em;
 }
 
-ul li.checked label {
+ul li.checked h3 label {
   color: #888;
   text-decoration: line-through;
 }
@@ -123,6 +123,11 @@ ul li textarea.notes{
   border: 1px solid #FFF;
   background: #fffcee;
   font-style: italic;
+  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: .25em .5em;
+  margin: 0 -.5em 1em;
 }
 
 ul li textarea.notes:focus{
@@ -181,4 +186,13 @@ button.skip_link {
 }
 button.help {
   background-image: url(/images/help.png);
+}
+
+p.description {
+  margin-top: -0.25em;
+}
+.checked p.description,
+.checked .widget,
+.checked textarea.notes {
+  display: none;
 }

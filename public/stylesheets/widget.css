@@ -3,11 +3,16 @@
 }
 
 .widget {
-  border: 1px solid #999;
+  background: #dfd ;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: .25em .5em;
+  margin: 0 -.5em 1em;
 }
 
-h2 {
+.widget h3 {
   font-size: medium;
+  margin-top: 0;
 }
 
 .widget .error_message {
