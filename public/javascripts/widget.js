@@ -2,7 +2,9 @@ var todo_gov_widget = {
   perform: function() {
     var widget = $(this).closest('.widget');
     var info = $(this).closest('.widget').find('.perform_info');
+    var results = $('.results', widget);
     widget.children().hide();
+    results.show();
     info.show();
     widget.append(info);
 
@@ -42,6 +44,7 @@ var todo_gov_widget = {
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     $(this).children().show();
     $(this).find('.perform_info').hide();
+    $('.error_message', this).show();
     todo_gov_widget.activate_perform_buttons();
   },
   activate_perform_buttons: function() {
