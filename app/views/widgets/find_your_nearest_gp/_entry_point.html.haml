@@ -1,11 +1,12 @@
 .widget.find_your_nearest_gp
   %h2
     Find your nearest gp
-  .perform_info
-    = image_tag('spinner.gif', :alt => 'Please wait')
-    Finding your nearest GP...
-  .error_message
-    There was an error locating your nearest gp. Maybe try again?
-  - form_for :user_data, :url => '/widgets/find_your_nearest_gp', :builder => TodoFormBuilder do |form|
-    = form.text_field :postcode
-    = perform_button('Search')
+  .perform
+    .perform_info
+      = image_tag('spinner.gif', :alt => 'Please wait')
+      Finding your nearest GP...
+    .error_message
+      There was an error locating your nearest gp. Maybe try again?
+    - form_for :user_data, :url => '/widgets/find_your_nearest_gp', :builder => TodoFormBuilder do |form|
+      = form.text_field :postcode
+      = perform_button('Search')
