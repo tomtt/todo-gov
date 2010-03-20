@@ -74,7 +74,10 @@ ul li textarea.notes{
   margin-top: .5em;
   margin-bottom: 1em;
   border: 1px solid #FFF;
+  background: #fffcee;
+  font-style: italic;
 }
+
 ul li textarea.notes:focus{
   border: 1px solid #000;
 }
