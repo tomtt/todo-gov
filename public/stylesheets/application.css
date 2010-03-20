@@ -1,6 +1,7 @@
 body{
   color: #333;
   background: #666;
+  font-family: arial, sans-serif;
 }
 
 #title {
@@ -27,6 +28,7 @@ body{
 
 #head .options {
   float: right;
+  font-size: 0.8em;
 }
 
 h1,h2,h3,h4{
