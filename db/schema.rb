@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100320142726) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "widgets"
     t.text     "description"
   end
 
