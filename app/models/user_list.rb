@@ -1,31 +1,39 @@
 class CheckableItem
-  attr_reader :item, :checked_item, :user
+  attr_reader :item, :user
 
   def initialize(item, checked_item = nil, user_list = nil)
     @item, @checked_item, @user_list = item, checked_item, user_list
   end
 
   def checked?
-    !@checked_item.nil?
+    @checked_item and @checked_item.checked?
   end
 
   def check!
-    if not checked?
-      @checked_item = CheckedItem.create!(:item => @item, :user_list => @user_list)
+    if @checked_item and not checked?
+      @checked_item.update_attribute(:checked, true) if not checked?
+    elsif not checked?
+      @checked_item = CheckedItem.create!(:item => @item, :user_list => @user_list, :checked => true)
     end
   end
 
   def uncheck!
-    if checked?
-      @checked_item.destroy
-      @checked_item = nil
-    end
+    @checked_item.update_attribute(:checked, false) if checked?
   end
 
   def checked=(v)
     v ? check! : uncheck!
   end
 
+  def notes=(v)
+    checked_item.update_attribute(:notes, v)
+  end
+
+  def checked_item
+    @checked_item ||= CheckedItem.create!(:item => @item, :user_list => @user_list, :checked => false)
+  end
+
+  delegate :notes, :to => :checked_item
   delegate :name, :id, :desription, :to => :item
 end
 

@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :lists
-  map.resources :user_lists, :member => {:check_item => :post}
+  map.resources :user_lists, :member => {:check_item => :post, :update_notes => :post}
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users

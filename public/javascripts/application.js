@@ -9,6 +9,8 @@ $(function($){
       }
     });
   };
+  update_checked_css();
+
   $('#user_list .item input[type="checkbox"]').change(function(){
     var path = window.location.pathname + "/check_item";
     var id = this.name.replace("user_list[item_", "").replace("]", "");
@@ -17,5 +19,31 @@ $(function($){
       update_checked_css();
     });
   })
-  update_checked_css();
+
+  $('#user_list .item .notes')
+    .each(function() {
+      var notes = $(this);
+      var link = $("<a><img src='/images/notes_toggle.png'/></a>")
+        .addClass("notes_toggle")
+        .click(function(){ notes.toggle(); });
+      $(this).parent("li").append(link);
+      if(notes.val() === ""){ notes.hide(); }
+      notes.keyup(function(){
+        NoteSaver.start(notes);
+      });
+    });
+
+  var NoteSaver = {pending: {}};
+  NoteSaver.start = function(notes){
+    if(this.pending[notes.id]){
+      clearTimeout(this.pending[notes.id]);
+    }
+    this.pending[notes.id] = setTimeout(function(){ NoteSaver.save(notes) }, 500);
+  };
+  NoteSaver.save = function(el){
+    var path = window.location.pathname + "/update_notes";
+    var id = el.attr("name").replace("user_list[notes_", "").replace("]", "");
+    $.post(path, { item_id:  id, notes: el.val() });
+  };
 });
+
