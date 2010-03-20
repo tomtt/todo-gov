@@ -54,6 +54,13 @@ ul li {
   position: relative;
 }
 
+li.item h3 {
+  color: #333;
+}
+li.item.next h3 {
+  color: green;
+}
+
 ul li label, ul li p {
   display: block;
   width: 550px;

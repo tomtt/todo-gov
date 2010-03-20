@@ -1,6 +1,7 @@
 $(function($){
   var update_checked_css = function(){
     $('#user_list .item').each(function(){
+      $(this).removeClass("next");
       var checkbox = $(this).find('input[type="checkbox"]');
       if(checkbox.attr("checked")){
         $(this).addClass("checked")
@@ -8,6 +9,7 @@ $(function($){
         $(this).removeClass("checked")
       }
     });
+    $($('#user_list .item:not(.checked)').first()).addClass("next");
   };
   update_checked_css();
 
