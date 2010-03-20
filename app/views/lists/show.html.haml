@@ -1,8 +1,5 @@
 %h2&= @list.name
-%ul#list
-  -@list.items.each do |list|
-    %li.item&= list.name
-
+%p&= @list.description
 -form_for(UserList.new(:list_id => @list.id)) do |f|
   =f.hidden_field(:list_id)
   =f.submit("Start this list")

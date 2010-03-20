@@ -10,6 +10,8 @@ body{
 h1,h2,h3,h4{
   font-family: "arial black", "arial";
   color: #000;
+  margin-top: .5em;
+  margin-bottom: .25em;
 }
 
 ul {
@@ -17,8 +19,7 @@ ul {
   padding: 0;
 }
 ul li {
-  margin: .25em 0;
-  font-size: 1.25em;
+  margin: .3em 0;
   list-style:none;
   position: relative;
 }
