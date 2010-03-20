@@ -4,13 +4,11 @@ var todo_gov_widget = {
     var results = widget.find('.results');
     var info = widget.find('.perform_info');
     var form = widget.find('form');
-    var previous_response = widget.find(".response");
-
-    previous_response.remove();
 
     widget.children().hide();
     results.show();
     info.show();
+    widget.append(info);
 
     var request = $.ajax({
       type: "POST",
@@ -39,8 +37,8 @@ var todo_gov_widget = {
     return false;
   },
   success: function(response) {
-    $(this).children().hide();
-    $(this).append('<div class="response">' + response + '</div>');
+    $(this).empty();
+    $(this).append(response)
     todo_gov_widget.activate_perform_buttons();
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
