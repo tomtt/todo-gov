@@ -1,5 +1,5 @@
 Here is a list of registry offices near
-= params["user_data"]["postcode"], ":"
+= h(params["user_data"]["postcode"]) + ":"
 %ul
   -@registry_offices.each do |registry|
     %li
