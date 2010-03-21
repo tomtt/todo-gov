@@ -1,0 +1,3 @@
+* Creation and editing of lists should not be accessible to a regular user
+* When editing a list item, it should not change its order in the list
+* It should be possible to order items on a list
