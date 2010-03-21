@@ -1,12 +1,12 @@
 .widget.find_your_nearest_gp
   %h3
-    Find your nearest gp
+    Find your nearest GP
   .perform
     .perform_info
       = image_tag('spinner.gif', :alt => 'Please wait')
       Finding your nearest GP...
     .error_message
-      There was an error locating your nearest gp. Maybe try again?
+      There was an error locating your nearest GP. Maybe try again?
     - fields_for :user_data, :builder => TodoFormBuilder do |form|
       .url{ :value => '/widgets/find_your_nearest_gp' }
       = form.text_field :postcode
