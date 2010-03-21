@@ -4,8 +4,7 @@
   %ul
     -@doctors.each do |doctor|
       %li
-        =link_to(doctor.name, doctor.details_url)
-        \-
+        =link_to(doctor.name, doctor.details_url), " - "
         =doctor.telephone
 
 .perform
