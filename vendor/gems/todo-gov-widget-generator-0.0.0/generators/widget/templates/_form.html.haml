@@ -1,0 +1,4 @@
+- fields_for :user_data, :builder => TodoFormBuilder do |form|
+  .url{ :value => '/widgets/<%= file_name %>' }
+  = form.text_field :postcode
+  = perform_button('Search')

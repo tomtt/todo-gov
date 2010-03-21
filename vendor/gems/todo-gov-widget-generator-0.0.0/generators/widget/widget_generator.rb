@@ -26,6 +26,8 @@ class WidgetGenerator < Rails::Generator::NamedBase
         File.join("app/views/widgets", class_path, file_name, "create.#{@default_file_extension}")
       m.template "_entry_point.#{@default_file_extension}",
         File.join("app/views/widgets", class_path, file_name, "_entry_point.#{@default_file_extension}")
+      m.template "_form.#{@default_file_extension}",
+        File.join("app/views/widgets", class_path, file_name, "_form.#{@default_file_extension}")
     end
   end
 end

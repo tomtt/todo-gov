@@ -1,5 +1,5 @@
 .widget.<%= file_name %>
-  %h2
+  %h3
     <%= file_name.humanize %>
   .perform
     .perform_info
@@ -7,6 +7,4 @@
       Please wait while we do stuff
     .error_message
       There was an error
-    - form_for :user_data, :url => '/widgets/<%= file_name %>', :builder => TodoFormBuilder do |form|
-      = form.text_field :postcode
-      = perform_button('Search')
+    = render(:partial => '/widgets/<%= file_name %>/form')
