@@ -4,9 +4,11 @@ class TodoFormBuilder < ActionView::Helpers::FormBuilder
     alias_method "orig_#{field_type}", field_type
     src_to_eval = <<-end_src
       def #{field_type}(field, options = {})
+        options = options.dup
         options_for_wrapper = [:field_suffix, :is_mandatory, :label, :label_class, :wrapper_class]
         wrapper_options = options.slice(*options_for_wrapper)
         options.except!(*options_for_wrapper)
+        options = set_default_options_for_field_type(:#{field_type}, options)
         field_type_wrapper(super, field, wrapper_options)
       end
     end_src
@@ -52,6 +54,23 @@ class TodoFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   private
+
+  def set_default_options_for_field_type(field_type, options)
+    if options[:class]
+      options[:class] += ' widget_field'
+    else
+      options[:class] = 'widget_field'
+    end
+
+    default_options = {}
+    if field_type == :text_field
+      default_options[:size] = 80
+    end
+    if field_type == :text_area
+      default_options[:cols] = 80
+    end
+    default_options.merge(options)
+  end
 
   def field_type_wrapper(result_from_super, field, options = {})
     options = options.dup

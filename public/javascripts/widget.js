@@ -47,7 +47,7 @@ var todo_gov_widget = {
     $('input.widget_perform[type=submit]').live("click", todo_gov_widget.perform)
   },
   popuplate_user_data: function() {
-    $(".widget form input").each(function() {
+    $(".widget_field").each(function() {
       var matches = $(this).attr("name").match(/^user_data\[([^\]]+)\]$/);
       if(matches && !$(this).attr("value")) {
         $(this).attr("value", current_user.data[matches[1]]);
@@ -55,7 +55,7 @@ var todo_gov_widget = {
     });
   },
   auto_submit: function() {
-    $(".widget.auto_submit form").each(function() {
+    $(".widget.auto_submit").each(function() {
       var unfilled_fields = $(this).find("input[value='']");
       if(unfilled_fields.length == 0) {
         todo_gov_widget.perform.apply(this);
