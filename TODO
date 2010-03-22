@@ -7,3 +7,4 @@
 * The icons for each item should have a label that state what they do
 * A user should be able to see and edit all her user data (profile page may be a good place)
 * There could be a form at the top of a list that contains all the datafield that all widgets need. That way you can fill them all in in once place.
+* Match spinner background colour
