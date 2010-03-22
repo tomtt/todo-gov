@@ -1,3 +1,9 @@
 * Creation and editing of lists should not be accessible to a regular user
 * When editing a list item, it should not change its order in the list
 * It should be possible to order items on a list
+* The way widgets work are more suited for a JSONP protocol: that way we can send custom error messages and also tell the interface to set a user data item to a certain value. It would also make it easier to integrate widgets hosted on other sites.
+* I think the autoload feature may cause problems if we make things fancier down the line, also if we will be allowing external widgets, users should have full controll over which data is being sent to third parties, so it is good if there is always a submit button they have to click.
+* Ignoring a list item should be persistent and not get rid of the item entirely, but maybe put it at the bottom under a 'irrelevent' section
+* The icons for each item should have a label that state what they do
+* A user should be able to see and edit all her user data (profile page may be a good place)
+* There could be a form at the top of a list that contains all the datafield that all widgets need. That way you can fill them all in in once place.
